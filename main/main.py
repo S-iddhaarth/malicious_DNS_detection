@@ -50,7 +50,7 @@ predictions = clf.predict(np.array(X_test))
 
 acc =  accuracy(y_test, predictions)
 print(acc)
-joblib.dump(clf,'save.joblib')
+joblib.dump(clf,'s   ve.joblib')
            
         
 
