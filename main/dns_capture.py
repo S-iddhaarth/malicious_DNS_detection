@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 
-with open('save.joblib', 'rb') as file:
+with open('save.joblib', 'rb') as file,open('acquire.txt','w') as outi:
     loaded_model = joblib.load(file)
 queries_liste = {}
 quiet = False
@@ -61,17 +61,17 @@ def process(pkt):
 
 		if not quiet:
 			system('clear')
-			print("{:15s} | {:15s} | {:15s} | {}".format("IP source", "DNS server", "Count DNS request", "Query"))
+			
 			for ip in queries_liste:
-				print("{:15s}".format(ip)) # IP source
+				
 				for query_server in queries_liste[ip]:
-					print(" "*18+"{:15s}".format(query_server)) # IP of DNS server
+			
 					for query in queries_liste[ip][query_server]:
 						data = vectorize.vectorize(query)
-						vec = data.vector.reshape((1,48))
+						vec = data.vector.reshape((1,47))
 						value = loaded_model.predict(vec)
-						print(value)
-						print(" "*36+"{:19s} {}".format(str(queries_liste[ip][query_server][query]),query)) # Count DNS request | DNS
+						print(value,query)
+						
 
 
 

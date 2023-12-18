@@ -10,7 +10,7 @@ class vectorize:
         self.domain = domain
         self.features = ["NUMBER OF CHARACTERS","NUMBER OF DIFFERENT CHARACTERS","C","V","1-GRAM MEAN","1-GRAM VARIANCE","1-GRAM STANDARD DEVIENCE","2-GRAM MEAN","2-GRAM VARIANCE","2-GRAM STANDARD DEVIENCE","CC","VC","CV","CCC","CVC","VCC","VCV","MAX FREAQUECNY CHARTER/TOTAL NUMBER OF CHARACTER","MIN FREAQUENCY CHARACTER/TOTAL NUMBER OF CHARACTER","SHANON ENTROPY","IN","ER","AN","RE","ES","AR","ON","OR","TE","AL","ST","NE","EN","ING","ION","INE","TER","LIN","ENT","THE","ERS","AND","EST","TIO","TRA","TOR","ART"]
         self.featureTable = dict.fromkeys(self.features ,[])
-        self.vector = zeros((len(self.features)+1,))
+        self.vector = zeros((len(self.features),))
         cons = 'bcdfghjklmnpqrstvwxyz'
         vow = 'aeiou'
         self.masked = ''

@@ -20,7 +20,7 @@ if __name__ == '__main__':
             begnin.append(j.split(',')[1])
     
     i = 0
-    features = np.zeros((60000,48))
+    features = np.zeros((60000,47))
     classs = np.zeros((60000,),dtype='int64')
     
     while i < 30000:
@@ -44,13 +44,13 @@ def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
     return accuracy
 
-clf = random_forest.RandomForest(n_trees=20)
+clf = random_forest.RandomForest(n_trees=30)
 clf.fit(np.array(X_train), np.array(y_train))
 predictions = clf.predict(np.array(X_test))
 
 acc =  accuracy(y_test, predictions)
 print(acc)
-joblib.dump(clf,'s   ve.joblib')
+joblib.dump(clf,'sve.joblib')
            
         
 
